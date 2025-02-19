@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>FlutterDeepLinkingEnabled</key>
+	<true/>
+	<key>BaseURL</key>
+	<string>${BASE_URL}</string>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Zinc</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>zinc</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>11</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>0.1.0</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>com.googleusercontent.apps.1092423909935-s17qc2f076lgm1rphem0n8qo80lpeb4h</string>
+        </array>
+    </dict>
+</array>
+
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>MixPanelToken</key>
+	<string>${MIXPANEL_TOKEN}</string>
+	<key>AppStoreID</key>
+	<string>${APP_STORE_ID}</string>
+	<key>HvAppID</key>
+	<string>Access to photo library is needed for capturing document for user verification </string>
+	<key>NSCameraUsageDescription</key>
+	<string>Access to camera is needed for capturing document for user verification and user face capture for KYC</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>App is using the microphone permission to verify the user while adding the bank account.  Its used to differentiate the user from a bot.</string>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>FacebookAppID</key>
+	<string>${FB_APP_ID}</string>
+	<key>FacebookClientToken</key>
+	<string>${FB_CLIENT_TOKEN}</string>
+	<key>FacebookDisplayName</key>
+	<string>Zinc</string>
+	<key>FacebookAutoLogAppEventsEnabled</key>
+	<true/>
+</dict>
+</plist>

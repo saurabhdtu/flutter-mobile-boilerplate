@@ -1,0 +1,72 @@
+name: design_module
+description: "A new Flutter package project."
+version: 0.0.1
+publish_to: none
+environment:
+  sdk: '>=3.1.5 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_svg: ^2.0.10+1
+  cached_network_image: ^3.3.1
+  shimmer: ^3.0.0
+  fluttertoast: ^8.2.8
+  flutter_icon_snackbar: ^1.1.7
+  lottie: ^3.1.2
+  vibration: ^2.0.0
+  cupertino_icons: ^1.0.8
+  dotted_border: ^2.1.0
+  video_player: ^2.9.1
+  go_router:
+  analytics_module:
+    path: '../analytics_module'
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+#    - assets/awx/svg
+
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  fonts:
+    - family: Satoshi
+      fonts:
+        - asset: ../../assets/fonts/Satoshi-Black.otf
+          weight: 900
+        - asset: ../../assets/fonts/Satoshi-Bold.otf
+          weight: 700
+        - asset: ../../assets/fonts/Satoshi-Medium.otf
+          weight: 500
+        - asset: ../../assets/fonts/Satoshi-Regular.otf
+          weight: 400
+    - family: Hubot
+      fonts:
+        - asset: ../../assets/fonts/HubotSans-Black.ttf
+          weight: 900
+        - asset: ../../assets/fonts/HubotSans-ExtraBold.ttf
+          weight: 700
+        - asset: ../../assets/fonts/HubotSans-Bold.ttf
+          weight: 600
+        - asset: ../../assets/fonts/HubotSans-Regular.ttf
+          weight: 400

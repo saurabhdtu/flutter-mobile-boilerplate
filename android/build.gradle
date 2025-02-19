@@ -1,0 +1,38 @@
+buildscript {
+    ext.kotlin_version = '1.9.0'
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.3.1'
+        //STRICTLY keep the google-service version at 4.3.0
+        classpath 'com.google.gms:google-services:4.3.14'
+        //STRICTLY keep the crashlytics version at 2.8.1. Upper versions not compatible with this gradle version
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.8.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url = "https://s3.ap-south-1.amazonaws.com/hvsdk/android/releases"
+        }
+    }
+}
+
+rootProject.buildDir = '../build'
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(':app')
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}

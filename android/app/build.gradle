@@ -1,0 +1,135 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services"
+    id 'com.google.firebase.crashlytics'
+
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('keystore.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+if (keystorePropertiesFile.exists()) {
+    keystorePropertiesFile.withReader('UTF-8') { reader ->
+        keystoreProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+android {
+    namespace "com.boilerplate"
+    ndkVersion flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    signingConfigs {
+        debug {
+            storeFile file("${rootDir}/app/src/devDebug/debug-keystore")
+            storePassword "android"
+            keyAlias "zinc-debug"
+            keyPassword 'android'
+        }
+        release {
+            storeFile file("${rootDir}/zinc-android-keystore")
+            storePassword keystoreProperties.getProperty("store-password")
+            keyAlias keystoreProperties.getProperty("alias")
+            keyPassword keystoreProperties.getProperty("key-password")
+        }
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        compileSdk 34
+        namespace("com.zinc.money")
+        applicationId "com.zinc.money"
+        // You can update the following values to match your application needs.
+        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
+        minSdkVersion 23
+        targetSdkVersion flutter.targetSdkVersion
+        versionCode 7
+        versionName "0.1.0.2"
+        resValue "string", "app_name", "Zinc-Dev"
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        flavorDimensions = ["version"]
+        dev {
+            dimension "version"
+            applicationIdSuffix ".android.debug"
+            resValue "string", "app_name", "Zinc-Dev"
+            buildConfigField "String", 'BASE_URL', "\"API_URL\""
+            signingConfig signingConfigs.debug
+        }
+        prod {
+            dimension "version"
+            applicationIdSuffix ""
+            resValue "string", "app_name", "Zinc"
+            buildConfigField "String", 'BASE_URL', "\"API_URL\""
+            signingConfig signingConfigs.release
+        }
+    }
+
+
+}
+
+flutter {
+    source '../..'
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+dependencies {
+    implementation 'com.google.android.gms:play-services-auth:21.2.0'
+    implementation("com.moengage:moe-android-sdk:13.03.00")
+    implementation("androidx.core:core-ktx:1.13.1")
+    implementation ("com.google.android.gms:play-services-auth:21.2.0")
+    implementation("androidx.lifecycle:lifecycle-process:2.7.0")
+    implementation("com.google.android.gms:play-services-ads-identifier:18.1.0")
+    implementation ("com.facebook.android:facebook-android-sdk:16.3.0")
+    implementation 'com.github.scottyab:rootbeer:0.1.0'
+}

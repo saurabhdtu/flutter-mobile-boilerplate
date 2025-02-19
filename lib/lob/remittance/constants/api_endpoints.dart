@@ -1,0 +1,30 @@
+abstract class ApiEndpoints{
+  static const String getBeneficiaries = "/beneficiary/beneficiaries";
+  static const String getRemitters = "/remitter/remitters";
+  static const String getRemitterById = "/remitter/remitter/%s";
+  static const String getBeneficiaryById = "/beneficiary/beneficiary/%s";
+  static const String getCompletedTransactions = "/transaction/get/transactions/completed/";
+  static const String getInitiatedTransactions = "/transaction/get/transactions/initiated/";
+  static const String getTransactionHistory = "/transaction/get/transactions/history/";
+  static const String getTransactionDetails = "/transaction/get/transaction";
+  static const String getStudents = "/student/students";
+  static const String initTransaction = "/transaction/init/";
+  static const String sofTransaction = "/transaction/updatetxn/sof/";
+  static const String checkDigiLockerStatus = "/kyc/remitter/sdk/digi-locker-status";
+  static const String startDigiLockerVerification = "/kyc/remitter/digi-locker";
+  static const String kycVerifyPan = "/kyc/remitter/verify-pan";
+  static const String verifyIfsc = "/kyc/verify-ifsc";
+  static const String verifyBankDetails = "/kyc/remitter/verify-bank";
+  static const String getOffers = "/offer/get_offer";
+  static const String getReceiverReasonsBasedOnCurrency = "/beneficiary/beneficiary_types?currency=%s";
+  static const String getReceiverStudentsBasedOnReason = "/student/students?beneficiary_type=%s&currency=%s";
+  static const String initiateCreateStudent = "/student/initiate-create-student/";
+  static const String getBeneficiaryDocumentByType = "/beneficiary/documents_required/%s";
+  static const String addStudent = "/student/create-student/";
+  static const String startDocumentUpload = "/kyc/student/document";
+  static const String checkDocumentStatus = "/kyc/student/sdk/document-status";
+  static const String startPassportUpload = "/kyc/student/passport";
+  static const String getPassportStatus = "/kyc/student/sdk/passport-status";
+  static const String getPaymentTimeline= "/transaction/get/%s/stored_statuses/";
+  static const String addBeneficiary = "/beneficiary/add_beneficiary/";
+}
